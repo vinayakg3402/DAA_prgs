@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+void selection_sort(int a[],int n)
+{
+	int i,j,m,temp,cnt=0;
+	for(i=0;i<n-1;i++)
+	{
+		m=i;
+		for(j=i+1;j<n;j++)
+		{
+			if(a[j]<a[m])
+			m=j;
+			cnt++;
+		}
+		temp=a[i];
+		a[i]=a[m];
+		a[m]=temp;
+		
+	}
+	printf("The sorted array is:\n");
+	for(i=0;i<n;i++)
+	printf("%d\t",a[i]);
+	printf("\n");
+	printf("the no.of time basic operation is performed is %d",cnt);
+}
+int main()
+{
+	int n,i;
+	int *a;
+	printf("the n value\n");
+	scanf("%d",&n);
+	a=(int *)calloc(n,sizeof(int));
+	printf("enter the array values\n");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	selection_sort(a,n);
+	return 0;
+}
